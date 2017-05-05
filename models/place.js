@@ -1,9 +1,8 @@
 'use strict'
 const Sequelize = require('Sequelize');
-const db = new Sequelize('postgres//localhost:5432/tripplanner');
+const db = require('./db');
 
-
-const Place = db.define('place', {
+const Places = db.define('places', {
 	address: {
 		type: Sequelize.STRING, allowNull: false
 	},
@@ -17,10 +16,10 @@ const Place = db.define('place', {
 		type: Sequelize.STRING, allowNull: false
 	},
 	location: {
-		type: Sequelize.ARRAY(Seqeulize.FLOAT), allowNull: false
+		type: Sequelize.ARRAY(Sequelize.FLOAT), allowNull: false
 	}
 
 })
 
-db.sync();
-module.exports = db;
+
+module.exports = Places;
